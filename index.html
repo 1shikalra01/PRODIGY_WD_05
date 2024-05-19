@@ -4,34 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0;
-      }
-      .container {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <h1>Weather App</h1>
-      <input type="text" id="locationInput" placeholder="Enter location" />
-      <button onclick="getWeather()">Get Weather</button>
-      <div id="weatherInfo"></div>
+      <div class="input-container">
+        <input type="text" id="locationInput" placeholder="Enter location" />
+        <button onclick="getWeather()">Get Weather</button>
+      </div>
+      <div id="weatherInfo" class="weather-info"></div>
     </div>
 
     <script>
       function getWeather() {
         const location = document.getElementById("locationInput").value;
-        const apiKey = "898fd3e87e08f1a496b0406c8b98e2dc";
+        const apiKey = "898fd3e87e08f1a496b0406c8b98e2dc"; // Replace 'YOUR_API_KEY' with your actual API key
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
 
         fetch(apiUrl)
